@@ -11,10 +11,11 @@
         })
         .then(data => {
             price = data.price_24h;
+            calculateValue();
         });
     }
 
-    function calculateValue(event){
+    function calculateValue(){
         if (price == null) return;
         if (amount == null) return;
         price = Number.parseFloat(price.toFixed(2));
@@ -31,6 +32,7 @@
  type="number" 
  step=".01" 
  id="price_input" />
+ <button on:click={getPrice}>Reset</button>
 <br />
 
 <h2>Bitcoin Amount (sats)</h2>
