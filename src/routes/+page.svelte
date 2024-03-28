@@ -1,7 +1,18 @@
 <script>
-    let price = 0;
+    let price = getPrice();
     let amount = 0;
     let value = 0;
+
+    function getPrice(){
+        fetch("https://api.blockchain.com/v3/exchange/tickers/BTC-USD")
+        .then(response => {
+            if (!response.ok) return {price_24h: 0};
+            return response.json();
+        })
+        .then(data => {
+            price = data.price_24h;
+        });
+    }
 
     function calculateValue(event){
         if (price == null) return;
