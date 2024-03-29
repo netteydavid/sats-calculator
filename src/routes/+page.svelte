@@ -1,15 +1,20 @@
 <script>
+    import {onMount} from 'svelte';
+
     const sats_per_btc = 100000000;
     const units = ["sats", "btc"];
     let unit = units[0];
     const symbols = ["USD", "EUR", "GBP"];
     let symbol = symbols[0];
 
-    let price = getPrice();
+    let price_input;
+    let price = 0;
     let amount = 0;
     let value = 0;
 
     $: amount_step = (unit == units[1]) ? "0.00000001" : "1";
+
+    onMount (() => getPrice());
 
     //Gets latest BTC price
     function getPrice(){
@@ -55,6 +60,7 @@
 
 <h2>Price</h2>
 <input bind:value={price}
+ bind:this={price_input}
  on:input={calculateValue}
  type="number" 
  step=".01" 
@@ -84,12 +90,14 @@
 </select>
 <br />
 
-<h2>Value (USD)</h2>
-<input bind:value={value}
- type="number" 
- step=".01" 
- id="value_input" />
-
+<h2>Value</h2>
+<label>
+    <input bind:value={value}
+    type="number" 
+    step=".01" 
+    id="value_input" />
+    {symbol}
+</label>
  <br />
  <br />
  <br />
