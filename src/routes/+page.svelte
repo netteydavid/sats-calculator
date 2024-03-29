@@ -1,26 +1,30 @@
 <script>
+    const sats_per_btc = 100000000;
+    const units = ["sats", "btc"];
+    let unit = units[0];
+    const symbols = ["USD", "EUR", "GBP"];
+    let symbol = symbols[0];
+
     let price = getPrice();
     let amount = 0;
     let value = 0;
 
-    const sats_per_btc = 100000000;
-    const units = ["sats", "btc"];
-    let unit = "sats";
-
     $: amount_step = (unit == units[1]) ? "0.00000001" : "1";
 
+    //Gets latest BTC price
     function getPrice(){
-        fetch("https://api.blockchain.com/v3/exchange/tickers/BTC-USD")
+        fetch(`https://api.blockchain.com/v3/exchange/tickers/BTC-${symbol}`)
         .then(response => {
-            if (!response.ok) return {price_24h: 0};
+            if (!response.ok) return {last_trade_price: 0};
             return response.json();
         })
         .then(data => {
-            price = data.price_24h;
+            price = data.last_trade_price;
             calculateValue();
         });
     }
 
+    //Converts amount from sats and BTC
     function convertUnit(){
         if (unit == units[1]){
             amount = amount * sats_per_btc
@@ -30,6 +34,7 @@
         }
     }
 
+    //Calculates value and formats price and value
     function calculateValue(){
         if (price == null) return;
         if (amount == null) return;
@@ -48,13 +53,20 @@
 
 <h1>Sats Calculator</h1>
 
-<h2>Price (USD)</h2>
+<h2>Price</h2>
 <input bind:value={price}
  on:input={calculateValue}
  type="number" 
  step=".01" 
  id="price_input" />
- <button on:click={getPrice}>Reset</button>
+<select bind:value={symbol}>
+    {#each symbols as sym}
+        <option value={sym}>
+        {sym}
+        </option>
+    {/each}
+</select>
+ <button on:click={getPrice}>Update Price</button>
 <br />
 
 <h2>Bitcoin Amount</h2>
@@ -77,3 +89,8 @@
  type="number" 
  step=".01" 
  id="value_input" />
+
+ <br />
+ <br />
+ <br />
+ <a href="https://strike.me/mju_btc">Support this project</a>
