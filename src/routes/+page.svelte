@@ -95,7 +95,7 @@
     <input bind:value={value}
     type="number" 
     step=".01" 
-    id="value_input" />
+    id="value_input" readonly/>
     {symbol}
 </label>
  <br />
