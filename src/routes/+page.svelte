@@ -56,49 +56,61 @@
     }
 </script>
 
-<h1>Sats Calculator</h1>
+<h1 class="text-center font-nunito font-[600] text-7xl text-navy">
+    Sats Calculator
+</h1>
+<div class="container flex flex-row divide-x divide-dashed mx-auto">
+    <div class="flex-auto">
+        <div class="border border-navy rounded-lg">
+            <h2>Price</h2>
+            <input bind:value={price}
+             bind:this={price_input}
+             on:input={calculateValue}
+             type="number" 
+             step=".01" 
+             id="price_input" />
+            <select bind:value={symbol}>
+                {#each symbols as sym}
+                    <option value={sym}>
+                    {sym}
+                    </option>
+                {/each}
+            </select>
+             <button on:click={getPrice}>Update Price</button>
+        </div>
+        <div class="border border-navy rounded-lg">
+            <h2>Bitcoin Amount</h2>
+            <input bind:value={amount}
+             on:input={calculateValue}
+             type="number"
+             step={amount_step}
+              id="btc_amt_input" />
+            <select bind:value={unit} on:input={convertUnit}>
+                {#each units as u}
+                    <option value={u}>
+                    {u.toUpperCase()}
+                    </option>
+                {/each}
+            </select>
+        </div>
+    </div>
+    <div class="flex-auto content-center">
+        <div class="border border-navy rounded-lg">
+            <h2>Value</h2>
+            <label>
+                <input bind:value={value}
+                type="number" 
+                step=".01" 
+                id="value_input" readonly/>
+                {symbol}
+            </label>
+        </div>
+    </div>
+</div>
 
-<h2>Price</h2>
-<input bind:value={price}
- bind:this={price_input}
- on:input={calculateValue}
- type="number" 
- step=".01" 
- id="price_input" />
-<select bind:value={symbol}>
-    {#each symbols as sym}
-        <option value={sym}>
-        {sym}
-        </option>
-    {/each}
-</select>
- <button on:click={getPrice}>Update Price</button>
-<br />
+<div class="container mx-auto items-center py-8">
+    <a class="block text-center" href="https://strike.me/mju_btc">
+        Support this project
+    </a>
+</div>
 
-<h2>Bitcoin Amount</h2>
-<input bind:value={amount}
- on:input={calculateValue}
- type="number"
- step={amount_step}
-  id="btc_amt_input" />
-<select bind:value={unit} on:input={convertUnit}>
-    {#each units as u}
-        <option value={u}>
-        {u.toUpperCase()}
-        </option>
-    {/each}
-</select>
-<br />
-
-<h2>Value</h2>
-<label>
-    <input bind:value={value}
-    type="number" 
-    step=".01" 
-    id="value_input" readonly/>
-    {symbol}
-</label>
- <br />
- <br />
- <br />
- <a href="https://strike.me/mju_btc">Support this project</a>

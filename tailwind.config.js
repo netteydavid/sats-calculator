@@ -1,8 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    fontFamily: {
+      'nunito': ['nunito', 'sans-serif']
+    },
+    colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'navy': '#020A50',
+        'orange': '#FF932B'
+    },
+    extend: {
+
+    },
   },
   plugins: [],
 }
