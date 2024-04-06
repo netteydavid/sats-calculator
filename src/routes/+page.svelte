@@ -59,10 +59,13 @@
 <h1 class="text-center font-nunito font-[600] text-7xl text-navy">
     Sats Calculator
 </h1>
-<div class="container flex flex-row divide-x divide-dashed mx-auto">
-    <div class="flex-auto">
-        <div class="border border-navy rounded-lg">
-            <h2>Price</h2>
+<div class="container flex flex-row divide-x divide-dashed mx-auto my-14">
+    <div class="flex-auto space-y-10 pr-10">
+        <div class="border border-navy rounded-lg px-5 py-8">
+            <div class="flex flex-row">
+                <h2 class="grow">Price</h2>
+                <button on:click={getPrice}>Update Price</button>
+            </div>
             <input bind:value={price}
              bind:this={price_input}
              on:input={calculateValue}
@@ -76,9 +79,8 @@
                     </option>
                 {/each}
             </select>
-             <button on:click={getPrice}>Update Price</button>
         </div>
-        <div class="border border-navy rounded-lg">
+        <div class="border border-navy rounded-lg px-5 py-8">
             <h2>Bitcoin Amount</h2>
             <input bind:value={amount}
              on:input={calculateValue}
@@ -94,8 +96,8 @@
             </select>
         </div>
     </div>
-    <div class="flex-auto content-center">
-        <div class="border border-navy rounded-lg">
+    <div class="flex-auto content-center pl-10">
+        <div class="border border-navy rounded-lg px-5 py-8">
             <h2>Value</h2>
             <label>
                 <input bind:value={value}
@@ -108,7 +110,7 @@
     </div>
 </div>
 
-<div class="container mx-auto items-center py-8">
+<div class="container mx-auto items-center my-8">
     <a class="block text-center" href="https://strike.me/mju_btc">
         Support this project
     </a>
