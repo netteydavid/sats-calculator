@@ -1,5 +1,6 @@
 <script>
     import {onMount} from 'svelte';
+    import refresh from '$lib/assets/refresh-cw.svg';
 
     const sats_per_btc = 100000000;
     const units = ["sats", "btc"];
@@ -64,7 +65,9 @@
         <div class="border border-navy rounded-lg px-5 py-8">
             <div class="flex flex-row">
                 <h2 class="w-3/4 text-5xl text-navy">Price</h2>
-                <button on:click={getPrice}>Update Price</button>
+                <button on:click={getPrice}>
+                    <img src={refresh} alt="Refresh Price" />
+                </button>
             </div>
             <input bind:value={price}
              bind:this={price_input}
