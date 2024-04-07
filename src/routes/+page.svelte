@@ -56,14 +56,14 @@
     }
 </script>
 
-<h1 class="text-center font-nunito font-[600] text-7xl text-navy">
+<h1 class="text-center font-nunito font-[600] text-7xl text-navy mt-10">
     Sats Calculator
 </h1>
 <div class="container flex flex-row divide-x-[5px] divide-dashed divide-navy mx-auto my-14">
     <div class="flex-auto space-y-10 pr-10">
         <div class="border border-navy rounded-lg px-5 py-8">
             <div class="flex flex-row">
-                <h2 class="grow text-5xl text-navy">Price</h2>
+                <h2 class="w-3/4 text-5xl text-navy">Price</h2>
                 <button on:click={getPrice}>Update Price</button>
             </div>
             <input bind:value={price}
