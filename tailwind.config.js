@@ -9,7 +9,8 @@ export default {
         transparent: 'transparent',
         current: 'currentColor',
         'navy': '#020A50',
-        'orange': '#FF932B'
+        'orange': '#FF932B',
+        'white': '#FFFFFF'
     },
     extend: {
 
