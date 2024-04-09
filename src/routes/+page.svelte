@@ -9,6 +9,7 @@
     let symbol = symbols[0];
 
     let price_input;
+    let value_input;
     let price = 0;
     let amount = 0;
     let value = 0;
@@ -27,6 +28,8 @@
         .then(data => {
             price = data.last_trade_price;
             calculateValue();
+            decimalFormat();
+            //TODO: Figure out how to automatically format freshly mounted input for price
         });
     }
 
@@ -44,16 +47,22 @@
     function calculateValue(){
         if (price == null) return;
         if (amount == null) return;
-        price = Number.parseFloat(price.toFixed(2));
-        var result;
+        
         if (unit == units[1]){
-            result = price * amount;
+            value = price * amount;
         }
         else{
-            result = (price / sats_per_btc) * amount;
+            value = (price / sats_per_btc) * amount;
         }
-        
-        value = Number.parseFloat(result.toFixed(2));
+
+        //Round to the nearest hundredth
+        value = Math.round(100*value)/100;
+    }
+
+    //Automatically formats the field
+    function decimalFormat(){
+        price_input.value = Number.parseFloat(price_input.value).toFixed(2);
+        value_input.value = Number.parseFloat(value_input.value).toFixed(2);
     }
 </script>
 
@@ -72,6 +81,7 @@
             <input bind:value={price}
              bind:this={price_input}
              on:input={calculateValue}
+             on:change={decimalFormat}
              type="number" 
              step=".01" 
              id="price_input"
@@ -88,6 +98,7 @@
             <h2 class="text-5xl text-navy">Amount</h2>
             <input bind:value={amount}
              on:input={calculateValue}
+             on:change={decimalFormat}
              type="number"
              step={amount_step}
               id="btc_amt_input"
@@ -106,6 +117,7 @@
             <h2 class="text-5xl text-navy">Value</h2>
             <label class="text-4xl text-navy">
                 <input bind:value={value}
+                bind:this={value_input}
                 type="number" 
                 step=".01" 
                 id="value_input"
