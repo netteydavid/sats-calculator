@@ -1,6 +1,4 @@
 <script>
-    import { onMount } from "svelte";
-
     export let input_value;
     export let autoformat = true;
     export let step = ".01";
