@@ -11,15 +11,16 @@
     //Input element of the card
     $: price_input = null;
 
-    //Handles formatting of the price after getPrice()
+    //When true, permits format(). Should be false when user is typing.
     let formatted = false;
-    function formatPrice(){
+    //Reformats the input to always have two decimal places
+    function format(){
         if (!formatted){
             price_input.value = Number.parseFloat(price_input.value).toFixed(2);
             formatted = true;
         }
     }
-    afterUpdate(() => formatPrice());
+    afterUpdate(() => format());
 
     //Gets the most recent bitcoin price in the currency of the user's choice
     function getPrice() {
