@@ -9,6 +9,7 @@ export const unit = writable(units[0]);
 export const price = writable(0);
 export const amount = writable(0);
 
+//Calculated stack value
 export const calculated = derived([price, amount, unit], ([$price, $amount, $unit]) => {
     if ($price == null) return 0;
     if ($amount == null) return 0;

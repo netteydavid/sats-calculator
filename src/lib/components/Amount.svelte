@@ -3,6 +3,7 @@
   import Units from './Units.svelte';
   import {amount,units,unit} from '$lib/scripts/stores.js';
 
+  //Handles step based on chosen bitcoin unit
   $: step = (unit == units[1]) ? "0.00000001" : "1";
 </script>
 

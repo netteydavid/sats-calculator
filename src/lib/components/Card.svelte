@@ -4,7 +4,8 @@
     export let step = ".01";
     export let disabled = false;
 
-    let card_input;
+    //Exposes input element
+    export let card_input;
 
     //Automatically formats the field
     function format(){
