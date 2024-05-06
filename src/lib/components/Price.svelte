@@ -38,7 +38,7 @@
 
 <Card bind:input_value={$price} bind:card_input={price_input}>
     <div slot="header" class="flex flex-row">
-        <h2 class="w-3/4 text-5xl text-navy">Price</h2>
+        <h2 class="w-3/4 text-4xl md:text-5xl text-navy">Price</h2>
         <button on:click={getPrice}>
             <img src={refresh} alt="Refresh Price" />
         </button>
