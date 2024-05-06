@@ -16,6 +16,6 @@
 </script>
 
 <Card bind:input_value={value} bind:card_input={input} disabled={true}>
-    <h2 slot="header" class="text-5xl text-navy">Value</h2>
+    <h2 slot="header" class="text-4xl md:text-5xl text-navy">Value</h2>
     <p slot="unit" class="text-4xl text-navy inline-block">{$symbol}</p>
 </Card>

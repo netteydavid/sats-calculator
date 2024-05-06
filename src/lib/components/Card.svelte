@@ -13,7 +13,7 @@
      bind:this={card_input}
      type="number" 
      step={step}
-     class="text-7xl text-navy w-3/4 outline-none focus:border-t-0 focus:border-x-0 focus:border-b-4 focus:border-navy" 
+     class="text-5xl md:text-7xl text-navy w-2/3 md:w-3/4 outline-none focus:border-t-0 focus:border-x-0 focus:border-b-4 focus:border-navy" 
      {disabled} />
     <slot name="unit" />
 </div>
