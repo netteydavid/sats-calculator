@@ -7,12 +7,12 @@
 <h1 class="text-center font-nunito font-[600] text-7xl text-navy mt-10">
     Sats Calculator
 </h1>
-<div class="container flex md:flex-row flex-col md:divide-x-[5px] max-md:divide-y-[5px] divide-dashed divide-navy mx-auto my-14">
-    <div class="flex-auto space-y-10 max-md:pb-10 md:pr-10">
+<div class="container flex lg:flex-row flex-col lg:divide-x-[5px] max-lg:divide-y-[5px] divide-dashed divide-navy mx-auto my-14">
+    <div class="flex-auto space-y-10 max-lg:pb-10 lg:pr-10">
         <Price />
         <Amount />
     </div>
-    <div class="flex-auto md:content-center md:pl-10 max-md:pt-10">
+    <div class="flex-auto lg:content-center lg:pl-10 max-lg:pt-10">
         <Value />
     </div>
 </div>
