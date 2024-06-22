@@ -4,7 +4,7 @@ Everyone gets the urge to see the value of their stack at certain prices. This i
 
 ## Features
 - [X] Initial build and deployment
-- [ ] Dark Mode
+- [X] Dark Mode
 - [X] Responsive UI/UX
 - [ ] Add more currencies
 - [ ] Automatically choose currency based on location
