@@ -2,7 +2,6 @@
     import { onMount,afterUpdate } from 'svelte';
     import Card from './Card.svelte';
     import Currencies from './Currencies.svelte';
-    import refresh from '$lib/assets/refresh-cw.svg';
     import {price,symbol} from '$lib/scripts/stores.js';
 
     //Initialize app with the price
@@ -38,9 +37,12 @@
 
 <Card bind:input_value={$price} bind:card_input={price_input}>
     <div slot="header" class="flex flex-row">
-        <h2 class="w-3/4 text-4xl md:text-5xl text-navy">Price</h2>
-        <button on:click={getPrice}>
-            <img src={refresh} alt="Refresh Price" />
+        <h2 class="w-3/4 text-4xl md:text-5xl dark:text-white text-navy">Price</h2>
+        <button on:click={getPrice} class="dark:text-white text-navy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+            </svg>
         </button>
     </div>
     <Currencies slot="unit" />

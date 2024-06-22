@@ -12,9 +12,9 @@
     }
 </script>
 
-<select bind:value={$unit} on:input={convertUnit} class="text-4xl bg-transparent">
+<select bind:value={$unit} on:input={convertUnit} class="text-4xl bg-transparent dark:text-white">
     {#each units as u}
-        <option value={u} class="text-4xl text-navy">
+        <option value={u} class="text-4xl dark:text-white dark:bg-navy text-navy">
         {u.toUpperCase()}
         </option>
     {/each}
