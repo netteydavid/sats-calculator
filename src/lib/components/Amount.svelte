@@ -8,6 +8,6 @@
 </script>
 
 <Card bind:input_value={$amount} {step}>
-    <h2 slot="header" class="text-4xl md:text-5xl text-navy">Amount</h2>
+    <h2 slot="header" class="text-4xl md:text-5xl dark:text-white dark:bg-navy text-navy">Amount</h2>
     <Units slot="unit" />
 </Card>

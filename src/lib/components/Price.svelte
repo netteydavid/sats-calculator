@@ -38,8 +38,8 @@
 
 <Card bind:input_value={$price} bind:card_input={price_input}>
     <div slot="header" class="flex flex-row">
-        <h2 class="w-3/4 text-4xl md:text-5xl text-navy">Price</h2>
-        <button on:click={getPrice}>
+        <h2 class="w-3/4 text-4xl md:text-5xl dark:text-white text-navy">Price</h2>
+        <button on:click={getPrice} class="dark:text-white">
             <img src={refresh} alt="Refresh Price" />
         </button>
     </div>
